@@ -40,7 +40,7 @@
 //! let id_of_two = vec_memory_storage.push(2);
 //! let id_of_three = vec_memory_storage.push(3);
 //!
-//! let three = vec_memory_storage.get(id_of_three)
+//! let three = *vec_memory_storage.get(id_of_three)
 //!      .expect("Something went wrong!");
 //!
 //! assert_eq!(three, 3);
