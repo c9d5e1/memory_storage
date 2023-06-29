@@ -85,7 +85,7 @@ pub struct FixedCapacitySlotVec<T>(SlotVec<T>);
 
 impl<T> FixedCapacitySlotVec<T> {
     /// Acquire the inner vector.
-    pub fn vec(self) -> SlotVec<V> {
+    pub fn vec(self) -> SlotVec<T> {
         self.0
     }
 }
