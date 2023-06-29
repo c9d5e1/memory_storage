@@ -1,3 +1,29 @@
+//! Create MemoryStorage instances with vectors. The 'alloc' feature is on by default.
+//! # Example with vec
+//! ```
+//! // Only with 'alloc' feature on!
+//! use memory_storage::vec::new_with_fixed_capacity_vec;
+//! use memory_storage::vec::new_with_vec;
+//!
+//! // Create a MemoryStorage using a vec with a fixed size of 3.
+//! let fixed_size_vec_memory_storage = new_with_fixed_capacity_vec(3);
+//!
+//! // MemoryStorage using a vec allowing to allocate more space.
+//! // Here we create an instance with the size of 1 (which can be increased).
+//! let mut vec_memory_storage = new_with_vec(1);
+//!
+//! let id_of_one = vec_memory_storage.push(1);
+//! let id_of_two = vec_memory_storage.push(2);
+//! let id_of_three = vec_memory_storage.push(3);
+//!
+//! let three = *vec_memory_storage.get(id_of_three)
+//!      .expect("Something went wrong!");
+//!
+//! assert_eq!(three, 3);
+//! ```
+
+extern crate alloc;
+
 use alloc::vec::Vec;
 use crate::{Id, MemoryStorage};
 use core::convert::AsRef;

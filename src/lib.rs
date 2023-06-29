@@ -48,9 +48,6 @@
 
 #![no_std]
 
-extern crate alloc;
-extern crate core;
-
 #[cfg(feature = "alloc")]
 pub mod vec;
 
@@ -79,6 +76,7 @@ pub struct MemoryStorage<T, U>
 impl<T, U> MemoryStorage<T, U>
     where
         U: AsRef<[Slot<T>]> + AsMut<[Slot<T>]>, {
+    /// Clears the storage by turning taken slots into free slots.
     pub fn clear(&mut self) {
         let capacity = self.capacity;
         if capacity == 0 {
