@@ -83,6 +83,13 @@ impl<T> MemoryStorage<T, SlotVec<T>> {
 /// Vector with a fixed size.
 pub struct FixedCapacitySlotVec<T>(SlotVec<T>);
 
+impl<T> FixedCapacitySlotVec<T> {
+    /// Acquire the inner vector.
+    pub fn vec(self) -> SlotVec<V> {
+        self.0
+    }
+}
+
 impl<T> AsRef<[Slot<T>]> for FixedCapacitySlotVec<T> {
     fn as_ref(&self) -> &[Slot<T>] {
         self.0
