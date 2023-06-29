@@ -11,6 +11,7 @@ keywords = [
 license-file = "LICENSE"
 description = "A memory storage comparable to a Vec where removing items doesn't shift all the items after the removed item to the left and doesn't invalidate their IDs. It allows you to remove items with high speed and access items via an ID that was returned after adding them."
 repository = "https://github.com/c9d5e1/memory_storage"
+documentation = "https://docs.rs/memory_storage/latest/memory_storage/"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
