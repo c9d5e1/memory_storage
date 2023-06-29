@@ -1,6 +1,6 @@
 [package]
 name = "memory_storage"
-version = "0.9.01"
+version = "0.9.1"
 edition = "2021"
 keywords = [
     "no-std",
