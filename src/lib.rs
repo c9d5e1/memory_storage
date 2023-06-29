@@ -189,7 +189,7 @@ impl<T, U> MemoryStorage<T, U>
 /// Alias for an array containing slots.
 pub type SlotArray<T, const S: usize> = [Slot<T>; S];
 
-/// Create a MemoryBuffer instance using an array as buffer.
+/// Create a MemoryStorage instance using an array as storage.
 pub fn new_with_array<T, const S: usize>() -> MemoryStorage<T, SlotArray<T, S>> {
     let array = initiate_array::<T, S>();
     let next_free_slot;
@@ -221,6 +221,7 @@ fn initiate_array<T, const S: usize>() -> SlotArray<T, S> {
     array
 }
 
+/// Error to signal that the storage is full.
 pub struct InternalStorageFullError<T>(pub T);
 
 impl<T> InternalStorageFullError<T> {
@@ -231,7 +232,7 @@ impl<T> InternalStorageFullError<T> {
 
 impl<T> Debug for InternalStorageFullError<T> {
     fn fmt(&self, f: &mut Formatter<'_>) -> core::fmt::Result {
-        write!(f, "Internal buffer is full!")
+        write!(f, "Internal storage is full!")
     }
 }
 
