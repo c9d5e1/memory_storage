@@ -1,5 +1,9 @@
 # Memory Storage
 A memory storage comparable to a Vec where removing items doesn't shift all the items after the removed item to the left and doesn't invalidate their IDs. It allows you to remove items with high speed and access items via an ID that was returned after adding them.
+# When to use?
+* When needing to remove/add items as fast as possible
+* When needing to access the items with high speed
+* When you don't want to generate your own ID for accessing items
 # Example with array
 ```
 use memory_storage::new_with_array;

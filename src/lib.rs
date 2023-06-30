@@ -1,4 +1,8 @@
 //! A memory storage comparable to a Vec where removing items doesn't shift all the items after the removed item to the left and doesn't invalidate their IDs. It allows you to remove items with high speed and access items via an ID that was returned after adding them.
+//! # When to use?
+//! * When needing to remove/add items as fast as possible
+//! * When needing to access the items with high speed
+//! * When you don't want to generate your own ID for accessing items
 //! # Example with array
 //! ```
 //! use memory_storage::new_with_array;
@@ -30,7 +34,7 @@
 //! use memory_storage::vec::new_with_vec;
 //!
 //! // Create a MemoryStorage using a vec with a fixed size of 3.
-//! let fixed_size_vec_memory_storage = new_with_fixed_capacity_vec(3);
+//! let fixed_size_vec_memory_storage = new_with_fixed_capacity_vec::<()>(3);
 //!
 //! // MemoryStorage using a vec allowing to allocate more space.
 //! // Here we create an instance with the size of 1 (which can be increased).
