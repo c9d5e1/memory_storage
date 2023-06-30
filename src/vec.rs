@@ -49,9 +49,9 @@ impl<T> MemoryStorage<T, SlotVec<T>> {
         let new_capacity = self.storage
             .capacity();
         let (starting_index, slots_to_insert) = if old_capacity != 0 {
-            (new_capacity - old_capacity, new_capacity - old_capacity)
+            (old_capacity, new_capacity - old_capacity)
         } else {
-            (0, 1)
+            (0, new_capacity)
         };
         let mut next_free_index = starting_index;
         for _ in 0..slots_to_insert {
@@ -162,6 +162,15 @@ fn initiate_vec<T>(capacity: usize) -> SlotVec<T> {
 #[cfg(test)]
 mod tests {
     use crate::vec::{new_with_fixed_capacity_vec, new_with_vec};
+
+    #[test]
+    fn test_vec_1_slot() {
+        let mut ms = new_with_vec(1);
+        let _ = ms.insert(());
+        assert!(ms.insert(()).is_err());
+        let _ = ms.push(());
+        assert_eq!(ms.taken_slots, 2);
+    }
 
     #[test]
     fn test_vec() {
