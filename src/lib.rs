@@ -3,6 +3,7 @@
 //! * When needing to remove/add items as fast as possible
 //! * When needing to access the items with high speed
 //! * When you don't want to generate your own ID for accessing items
+//! * When you don't have access to an allocator
 //! # Example with array
 //! ```
 //! use memory_storage::new_with_array;
@@ -227,6 +228,7 @@ fn initiate_array<T, const S: usize>() -> SlotArray<T, S> {
 pub struct InternalStorageFullError<T>(pub T);
 
 impl<T> InternalStorageFullError<T> {
+    /// Acquire the item that couldn't be stored.
     pub fn value(self) -> T {
         self.0
     }

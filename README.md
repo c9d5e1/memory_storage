@@ -4,6 +4,7 @@ A memory storage comparable to a Vec where removing items doesn't shift all the 
 * When needing to remove/add items as fast as possible
 * When needing to access the items with high speed
 * When you don't want to generate your own ID for accessing items
+* When you don't have access to an allocator
 # Example with array
 ```
 use memory_storage::new_with_array;

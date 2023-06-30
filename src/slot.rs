@@ -47,14 +47,6 @@ impl<T> Slot<T> {
         }
     }
 
-    pub fn unwrap_ref_next_free(self) -> Option<usize> {
-        if let Slot::NextFreeSlot(next_free_slot) = self {
-            next_free_slot
-        } else {
-            panic!("Slot wasn't free!")
-        }
-    }
-
     pub fn next_free(&self) -> Option<usize> {
         if let Slot::NextFreeSlot(next_free_slot) = self {
             *next_free_slot
