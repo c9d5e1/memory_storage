@@ -35,7 +35,7 @@ use memory_storage::vec::new_with_fixed_capacity_vec;
 use memory_storage::vec::new_with_vec;
 
 // Create a MemoryStorage using a vec with a fixed size of 3.
-let fixed_size_vec_memory_storage = new_with_fixed_capacity_vec(3);
+let fixed_size_vec_memory_storage = new_with_fixed_capacity_vec::<()>(3);
 
 // MemoryStorage using a vec allowing to allocate more space.
 // Here we create an instance with the size of 1 (which can be increased).
